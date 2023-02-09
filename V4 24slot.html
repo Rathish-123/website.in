@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V4 24slot</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false">
+            <h3> V4 24slot</h3>
+            <input type="text" id="name" placeholder="Your Name *" required>
+            <input type="email" id="email" placeholder="Email id *" required>
+            <input type="text" id="phone" placeholder="Phone no. *" required>
+            <input type="text" id="quantity" placeholder="Quantity. *" required>
+            <textarea id="message" rows="4" placeholder="Shipping address. *"></textarea>
+            <button type="submit" style="font-style:italic; font-family: Verdana, Geneva, Tahoma, sans-serif;">Shop</button>
+       </form>
+       
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+            SecureToken: "fdbca8df-e3ef-4e5b-af83-ad06caefa282",
+            
+            To : '20dx16@psgpolytech.ac.in',
+            From : document.getElementById("email").value,
+            Subject : "V4 24slot",
+            Body : "Name: "+ document.getElementById("name").value
+            + "<br> Email: "+ document.getElementById("email").value
+            + "<br> Phone no: "+ document.getElementById("phone").value
+            + "<br> Quantity: "+ document.getElementById("quantity").value
+            + "<br> Shipping address: "+ document.getElementById("message").value
+            }).then(
+            message => alert("success!!!")
+            );
+        }
+
+var button = document.getElementById("clickme"),
+count = 0;
+button.onclick = function() {
+  count += 1;
+  button.innerHTML = "Click me: " + count;
+};
+
+    </script>
+</body>
+</html>
